@@ -16,6 +16,15 @@ class OrderForm extends Component {
     this.setState({[e.target.name] : e.target.value});
   }
 
+  resetChanges = () => {
+    this.setState({img : 'broken-link.png', name : '', description : '', price : '', id : Date.now()});
+  }
+
+  handleClick = e => {
+    e.preventDefault();
+    this.props.addNewPurchase(this.state);
+    this.resetChanges();
+  }
 
 
   render() {
@@ -42,7 +51,7 @@ class OrderForm extends Component {
           placeholder='Produce price'
           onChange={this.handleChange}
           />
-        <button onClick={e => this.props.addNewPurchase(e, this.state)}>Submit Purchase</button>
+        <button onClick={this.handleClick}>Submit Purchase</button>
       </form>
     )
   }

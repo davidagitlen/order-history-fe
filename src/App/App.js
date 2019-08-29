@@ -21,8 +21,7 @@ class App extends Component {
       // .catch(err => console.log(err))
   }
 
-  addNewPurchase = (e, newPurchase) => {
-    e.preventDefault();
+  addNewPurchase = (newPurchase) => {
     const options = {
       method : 'POST',
       body : JSON.stringify(newPurchase),

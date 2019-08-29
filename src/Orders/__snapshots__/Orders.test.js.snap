@@ -1,3 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Orders should match the snapshot with all data passed in correctly 1`] = `ShallowWrapper {}`;
+exports[`Orders should match the snapshot with all data passed in correctly 1`] = `
+<div
+  className="orders-container"
+>
+  <Order
+    description="blob"
+    id={1}
+    key="1"
+    name="Blib"
+    price={100}
+  />
+</div>
+`;

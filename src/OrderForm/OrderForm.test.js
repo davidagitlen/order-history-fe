@@ -4,11 +4,12 @@ import OrderForm from './OrderForm';
 
 describe('OrderForm', () => {
 
-  let wrapper, mockAddNewPurchase;
+  let wrapper, mockAddNewPurchase, mockRemovePurchase;
 
   beforeEach(() => {
     mockAddNewPurchase = jest.fn();
-    wrapper = shallow(<OrderForm addNewPurchase={mockAddNewPurchase}/>);
+    mockRemovePurchase = jest.fn();
+    wrapper = shallow(<OrderForm addNewPurchase={mockAddNewPurchase} removePurchase={mockRemovePurchase}/>);
   });
 
   it('should match the snapshot with all data passed in correctly', () => {

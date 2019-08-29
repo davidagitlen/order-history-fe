@@ -1,3 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OrderForm should match the snapshot with all data passed in correctly 1`] = `ShallowWrapper {}`;
+exports[`OrderForm should match the snapshot with all data passed in correctly 1`] = `
+<form
+  className="order-form"
+>
+  <input
+    name="name"
+    onChange={[Function]}
+    placeholder="Product name"
+    type="text"
+    value=""
+  />
+  <input
+    name="description"
+    onChange={[Function]}
+    placeholder="Product description"
+    type="text"
+    value=""
+  />
+  <input
+    name="price"
+    onChange={[Function]}
+    placeholder="Produce price"
+    type="number"
+    value=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    Submit Purchase
+  </button>
+</form>
+`;

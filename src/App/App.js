@@ -32,7 +32,15 @@ class App extends Component {
 
     fetch('http://localhost:3001/api/v1/purchases', options)
       .then(res => res.json())
-      .then(purchase => this.setState({orders : [...this.state.orders, purchase]}));
+      .then(purchase => this.setState({orders : [...this.state.orders, purchase]}))
+      .catch(err => console.log(err))
+  }
+
+  removePurchase = (id) => {
+    fetch(`http://localhost:3001/api/v1/purchases/${id}`, {method : 'DELETE'})
+      .then(res => res.json())
+      .then(updates => this.setState({orders : updates, error : ''}))
+      .catch(err => console.log(err))
   }
 
 
@@ -46,7 +54,7 @@ class App extends Component {
           </div>
         </header>
         <div className='purchase-container'>
-          <Orders orderArray={this.state.orders} />
+          <Orders orderArray={this.state.orders} removePurchase={this.removePurchase}/>
         </div>
       </div>
     );

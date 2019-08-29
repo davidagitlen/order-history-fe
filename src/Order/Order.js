@@ -1,7 +1,7 @@
 import React from 'react';
 import './Order.css';
 
-const Order = ({id, image, name, description, price}) => {
+const Order = ({id, image, name, description, price, removePurchase}) => {
   
   return (
     <div className='order-card'>
@@ -9,7 +9,7 @@ const Order = ({id, image, name, description, price}) => {
       <h2>{name}</h2>
       <p>{description}</p>
       <p>${price}</p>
-      <button>Delete From History</button>
+      <button onClick={() => removePurchase(id)}>Delete From History</button>
     </div>
   )
 }

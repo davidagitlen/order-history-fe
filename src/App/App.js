@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Orders from '../Orders/Orders';
+import OrderForm from '../OrderForm/OrderForm';
 import './App.css';
 
 class App extends Component {
@@ -19,13 +20,16 @@ class App extends Component {
       .catch(err => this.setState({error : err.message}))
       // .catch(err => console.log(err))
   }
+
+
+
   render() {
     return (
       <div className="App">
         <header>
           <h1 className='app-title'>My Order History</h1>
           <div className='purchase-form'>
-
+            <OrderForm />
           </div>
         </header>
         <div className='purchase-container'>

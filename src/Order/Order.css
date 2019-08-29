@@ -1,0 +1,13 @@
+.order-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(248, 248, 255, .8);
+  height: 500px;
+  width: 350px;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}

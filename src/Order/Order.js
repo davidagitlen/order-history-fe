@@ -6,6 +6,7 @@ const Order = ({id, image, name, description}) => {
     <div>
       <img src={image} alt='' />
       <h2>{name}</h2>
+      <p>{description}</p>
     </div>
   )
 }

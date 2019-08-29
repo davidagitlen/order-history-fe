@@ -14,10 +14,10 @@ class App extends Component {
   componentDidMount() {
     fetch('http://localhost:3001/api/v1/purchases')
       .then(res => res.json())
-      .then(data => console.log(data))
-      // .then(data => this.setState({orders : data, error : ''}))
-      // .catch(err => this.setState({error : err.message})
-      .catch(err => console.log(err))
+      // .then(data => console.log(data))
+      .then(data => this.setState({orders : data, error : ''}))
+      .catch(err => this.setState({error : err.message}))
+      // .catch(err => console.log(err))
   }
   render() {
     return (

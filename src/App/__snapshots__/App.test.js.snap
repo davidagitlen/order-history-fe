@@ -22,7 +22,17 @@ exports[`App should match the snapshot 1`] = `
     className="purchase-container"
   >
     <Orders
-      orderArray={Array []}
+      orderArray={
+        Array [
+          Object {
+            "description": "blah",
+            "id": 1,
+            "image": "broken-link.png",
+            "name": "Blah",
+            "price": 100,
+          },
+        ]
+      }
       removePurchase={[Function]}
     />
   </div>

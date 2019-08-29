@@ -21,6 +21,20 @@ class App extends Component {
       // .catch(err => console.log(err))
   }
 
+  addNewPurchase = (e, newPurchase) => {
+    e.preventDefault();
+    const options = {
+      method : 'POST',
+      body : JSON.stringify(newPurchase),
+      headers : {
+        'Content-Type' : 'application/json'
+      }
+    }
+
+    fetch('http://localhost:3001/api/v1/purchases', options)
+      .then(res => res.json())
+      .then(purchase => this.setState({orders : [...this.state.orders, purchase]}));
+  }
 
 
   render() {
@@ -29,7 +43,7 @@ class App extends Component {
         <header>
           <h1 className='app-title'>My Order History</h1>
           <div className='purchase-form'>
-            <OrderForm />
+            <OrderForm addNewPurchase={this.addNewPurchase}/>
           </div>
         </header>
         <div className='purchase-container'>

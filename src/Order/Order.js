@@ -9,6 +9,7 @@ const Order = ({id, image, name, description, price}) => {
       <h2>{name}</h2>
       <p>{description}</p>
       <p>${price}</p>
+      <button>Delete From History</button>
     </div>
   )
 }

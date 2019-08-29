@@ -4,6 +4,7 @@ class OrderForm extends Component {
   constructor() {
     super();
     this.state = {
+      img : 'broken-link.png',
       name : '',
       description : '',
       price : '',
@@ -14,6 +15,8 @@ class OrderForm extends Component {
   handleChange = e => {
     this.setState({[e.target.name] : e.target.value});
   }
+
+
 
   render() {
     return (
@@ -39,7 +42,7 @@ class OrderForm extends Component {
           placeholder='Produce price'
           onChange={this.handleChange}
           />
-        <button onClick=''>Submit Purchase</button>
+        <button onClick={e => this.props.addNewPurchase(e, this.state)}>Submit Purchase</button>
       </form>
     )
   }

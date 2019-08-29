@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Orders from '../Orders/Orders';
 import './App.css';
 
 class App extends Component {
@@ -6,7 +7,17 @@ class App extends Component {
     super();
     this.state = {
       orders : [],
+      error : ''
     }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/purchases')
+      .then(res => res.json())
+      .then(data => console.log(data))
+      // .then(data => this.setState({orders : data, error : ''}))
+      // .catch(err => this.setState({error : err.message})
+      .catch(err => console.log(err))
   }
   render() {
     return (
@@ -18,7 +29,7 @@ class App extends Component {
           </div>
         </header>
         <div className='purchase-container'>
-
+          <Orders orderArray={this.state.orders} />
         </div>
       </div>
     );

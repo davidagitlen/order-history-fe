@@ -22,13 +22,13 @@ class App extends Component {
   addNewPurchase = (newPurchase) => {
     postPurchase(newPurchase)
       .then(purchase => this.setState({orders : [...this.state.orders, purchase]}))
-      .catch(err => console.log(err))
+      .catch(err => this.setState({ error: err.message}))
   }
 
   removePurchase = (id) => {
     deletePurchase(id)
       .then(updates => this.setState({orders : updates, error : ''}))
-      .catch(err => console.log(err))
+      .catch(err => this.setState({ error: err.message}))
   }
 
   render() {
@@ -41,7 +41,8 @@ class App extends Component {
           </div>
         </header>
         <div className='purchase-container'>
-          <Orders orderArray={this.state.orders} removePurchase={this.removePurchase}/>
+          {this.state.error && <h1>{this.state.error}</h1>}
+          {!this.state.error &&<Orders orderArray={this.state.orders} removePurchase={this.removePurchase}/>}
         </div>
       </div>
     );

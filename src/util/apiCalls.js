@@ -1,6 +1,10 @@
 export const getOrderHistory = () => {
   return fetch('http://localhost:3001/api/v1/purchases')
-    .then(res => res.json())
+    .then(res => {
+      if(!res.ok) {
+        throw Error('Error fetching purchases!')
+      }
+      return res.json()})
 }
 
 export const postPurchase = newPurchase => {
@@ -13,10 +17,20 @@ export const postPurchase = newPurchase => {
   }
 
   return fetch('http://localhost:3001/api/v1/purchases', options)
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw Error('Error posting purchases!')
+      }
+      return res.json()
+    })
 }
 
 export const deletePurchase = id => {
   return fetch(`http://localhost:3001/api/v1/purchases/${id}`, { method: 'DELETE' })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw Error('Error deleting purchases!')
+      }
+      return res.json()
+    })
 }

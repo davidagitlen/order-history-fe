@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Orders from '../Orders/Orders';
 import OrderForm from '../OrderForm/OrderForm';
+import { getOrderHistory, postPurchase, deletePurchase } from '../util/apiCalls.js';
 import './App.css';
 
 class App extends Component {
@@ -13,36 +14,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/v1/purchases')
-      .then(res => res.json())
-      // .then(data => console.log(data))
+    getOrderHistory()
       .then(data => this.setState({orders : data, error : ''}))
       .catch(err => this.setState({error : err.message}))
-      // .catch(err => console.log(err))
   }
 
   addNewPurchase = (newPurchase) => {
-    const options = {
-      method : 'POST',
-      body : JSON.stringify(newPurchase),
-      headers : {
-        'Content-Type' : 'application/json'
-      }
-    }
-
-    fetch('http://localhost:3001/api/v1/purchases', options)
-      .then(res => res.json())
+    postPurchase(newPurchase)
       .then(purchase => this.setState({orders : [...this.state.orders, purchase]}))
       .catch(err => console.log(err))
   }
 
   removePurchase = (id) => {
-    fetch(`http://localhost:3001/api/v1/purchases/${id}`, {method : 'DELETE'})
-      .then(res => res.json())
+    deletePurchase(id)
       .then(updates => this.setState({orders : updates, error : ''}))
       .catch(err => console.log(err))
   }
-
 
   render() {
     return (

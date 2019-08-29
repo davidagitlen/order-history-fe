@@ -4,24 +4,36 @@ exports[`Order should match the snapshot with all data passed in correctly 1`] =
 <div
   className="order-card"
 >
-  <img
-    alt=""
-    src="broken-link.png"
-  />
-  <h2>
-    order
-  </h2>
-  <p>
-    my order
-  </p>
-  <p>
-    $
-    100
-  </p>
-  <button
-    onClick={[Function]}
+  <div
+    className="card-left"
   >
-    Delete From History
-  </button>
+    <img
+      alt=""
+      src="broken-link.png"
+    />
+  </div>
+  <div
+    className="card-center"
+  >
+    <h2>
+      order
+    </h2>
+    <p>
+      my order
+    </p>
+  </div>
+  <div
+    className="card-right"
+  >
+    <p>
+      $
+      100
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Remove From History
+    </button>
+  </div>
 </div>
 `;

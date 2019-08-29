@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './OrderForm.css'
 
 class OrderForm extends Component {
   constructor() {
@@ -51,7 +52,7 @@ class OrderForm extends Component {
           placeholder='Produce price'
           onChange={this.handleChange}
           />
-        <button onClick={this.handleClick}>Submit Purchase</button>
+        <button onClick={this.handleClick}>Add Purchase</button>
       </form>
     )
   }

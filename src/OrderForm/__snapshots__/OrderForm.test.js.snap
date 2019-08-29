@@ -28,7 +28,7 @@ exports[`OrderForm should match the snapshot with all data passed in correctly 1
   <button
     onClick={[Function]}
   >
-    Submit Purchase
+    Add Purchase
   </button>
 </form>
 `;

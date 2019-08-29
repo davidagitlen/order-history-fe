@@ -5,11 +5,19 @@ const Order = ({id, image, name, description, price, removePurchase}) => {
   
   return (
     <div className='order-card'>
-      <img src={image} alt='' />
-      <h2>{name}</h2>
-      <p>{description}</p>
-      <p>${price}</p>
-      <button onClick={() => removePurchase(id)}>Delete From History</button>
+      <div className='card-left'>
+        <img src={image} alt='' />
+      </div>
+      <div className='card-center'>
+        <h2>{name}</h2>
+        <p>{description}</p>
+      </div>
+      <div className='card-right'>
+        <p>${price}</p>
+        <button onClick={() => removePurchase(id)}>
+          Remove From History
+          </button>
+      </div>
     </div>
   )
 }
